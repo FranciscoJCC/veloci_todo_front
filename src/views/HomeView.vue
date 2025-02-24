@@ -8,7 +8,7 @@
 
     <v-list lines="three" select-strategy="leaf">
       <v-list-subheader>{{
-        'Tareas pendientes: ' + tasksStore.completedTasks + ' de ' + tasksStore.totalTasks
+        'Tareas completadas: ' + tasksStore.completedTasks + ' de ' + tasksStore.totalTasks
       }}</v-list-subheader>
       <v-list-item
         v-for="item in tasksStore.tasks"
