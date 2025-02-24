@@ -14,10 +14,14 @@
         v-for="item in tasksStore.tasks"
         :key="item._id"
         :subtitle="formateDate(item.createdAt)"
-        :title="item.title"
         :value="item._id"
         @click.stop="editTask(item)"
       >
+        <template v-slot:title>
+          <v-list-item-title :class="item.completed ? 'text-decoration-line-through' : ''">
+            {{ item.title }}
+          </v-list-item-title>
+        </template>
         <template v-slot:prepend>
           <v-list-item-action start>
             <v-checkbox-btn
