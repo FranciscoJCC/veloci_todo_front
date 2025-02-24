@@ -10,6 +10,8 @@ export const useTasksStore = defineStore('tasksStore', {
       completed: null,
       createdAt: null,
     },
+    completedTasks: null,
+    totalTasks: null,
     loading: false,
     error: null,
     statusCode: null,
@@ -26,6 +28,8 @@ export const useTasksStore = defineStore('tasksStore', {
         const response = await axiosInstance.get(`/tasks?limit=${limit}&offset=${ofsset}`)
         this.tasks = response.data.tasks
         this.totalPages = response.data.totalPages
+        this.completedTasks = response.data.completedTasks
+        this.totalTasks = response.data.totalElements
       } catch (error) {
         this.error = error
       } finally {
